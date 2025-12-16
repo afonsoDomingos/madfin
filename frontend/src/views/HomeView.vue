@@ -29,7 +29,10 @@
       </div>
     </section>
     
-    <section class="featured-work">
+    <!-- STATS COUNTER -->
+    <StatsCounter />
+    
+    <section class="featured-work reveal-on-scroll">
         <div class="container">
             <div class="section-header">
                 <h2>Nosso <span class="highlight-text">Trabalho</span></h2>
@@ -61,16 +64,19 @@
         </div>
     </section>
 
+    <!-- TESTIMONIALS -->
+    <TestimonialsSlider />
+
     <section class="partners reveal-on-scroll">
         <div class="container">
             <h3>Empresas que confiam na MADFIN</h3>
             <div class="partners-grid">
                 <!-- Using placeholders for now -->
-                <div class="partner-logo">LOGO 1</div>
-                <div class="partner-logo">LOGO 2</div>
-                <div class="partner-logo">LOGO 3</div>
-                <div class="partner-logo">LOGO 4</div>
-                <div class="partner-logo">LOGO 5</div>
+                <div class="partner-logo">VODACOM</div>
+                <div class="partner-logo">BCI</div>
+                <div class="partner-logo">LAM</div>
+                <div class="partner-logo">MCEL</div>
+                <div class="partner-logo">BIM</div>
             </div>
         </div>
     </section>
@@ -124,6 +130,20 @@
             </div>
         </div>
     </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+        <div class="container cta-content">
+            <h2>Pronto para elevar sua marca?</h2>
+            <p>Solicite um orçamento gratuito e sem compromisso. Resposta em até 24 horas.</p>
+            <div class="cta-actions">
+                <router-link to="/contactos" class="cta-button primary large">Solicitar Orçamento</router-link>
+                <a href="https://wa.me/258862737770" target="_blank" class="cta-button whatsapp large">
+                    📱 Falar no WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
   </main>
   
   <WhatsAppWidget />
@@ -132,6 +152,8 @@
 <script setup>
 import { onMounted } from 'vue';
 import WhatsAppWidget from '../components/WhatsAppWidget.vue';
+import StatsCounter from '../components/StatsCounter.vue';
+import TestimonialsSlider from '../components/TestimonialsSlider.vue';
 
 // Scroll Animation Logic
 onMounted(() => {
@@ -545,5 +567,65 @@ h1 {
     .visual-block { margin-top: 3rem; height: 300px; display: block; }
     .creative-card { display: none; }
     .image-stack { height: 300px; display: block; margin-top: 2rem; }
+}
+
+/* CTA Banner */
+.cta-banner {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #111 0%, #222 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/images/artistic_portrait.png') center/cover;
+    opacity: 0.1;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-banner h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.cta-banner p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+}
+
+.cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.cta-button.large {
+    padding: 1.2rem 3rem;
+    font-size: 1.1rem;
+}
+
+.cta-button.whatsapp {
+    background: #25d366;
+    color: white;
+    border: none;
+}
+
+.cta-button.whatsapp:hover {
+    background: #1db954;
 }
 </style>

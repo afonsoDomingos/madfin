@@ -1,33 +1,77 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { ref } from 'vue'
+import { RouterLink, RouterView, useRouter } from 'vue-router'
+import FooterSection from './components/FooterSection.vue'
+
+const mobileMenuOpen = ref(false)
+const router = useRouter()
+
+const toggleMenu = () => {
+  mobileMenuOpen.value = !mobileMenuOpen.value
+}
+
+const closeMenu = () => {
+  mobileMenuOpen.value = false
+}
+
+// Close menu on route change
+router.afterEach(() => {
+  closeMenu()
+})
 </script>
 
 <template>
   <div class="app-layout">
     <header class="main-header">
         <div class="container nav-wrapper">
-          <div class="logo">
-              <!-- Using text for now, could be image -->
+          <RouterLink to="/" class="logo">
               <span>MAD</span><span class="highlight">FIN</span>
-          </div>
-          <nav>
+          </RouterLink>
+          
+          <!-- Desktop Nav -->
+          <nav class="desktop-nav">
             <RouterLink to="/">Início</RouterLink>
             <RouterLink to="/servicos">Serviços</RouterLink>
             <RouterLink to="/portfolio">Portfólio</RouterLink>
             <RouterLink to="/contactos">Contactos</RouterLink>
           </nav>
+          
+          <!-- Mobile Menu Button -->
+          <button class="mobile-menu-btn" @click="toggleMenu" :class="{ 'active': mobileMenuOpen }">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
+        
+        <!-- Mobile Nav Overlay -->
+        <div class="mobile-nav-overlay" :class="{ 'open': mobileMenuOpen }" @click="closeMenu"></div>
+        
+        <!-- Mobile Nav Drawer -->
+        <nav class="mobile-nav" :class="{ 'open': mobileMenuOpen }">
+          <div class="mobile-nav-header">
+            <span class="mobile-logo">MAD<span class="highlight">FIN</span></span>
+            <button class="close-btn" @click="closeMenu">×</button>
+          </div>
+          <div class="mobile-nav-links">
+            <RouterLink to="/" @click="closeMenu">Início</RouterLink>
+            <RouterLink to="/servicos" @click="closeMenu">Serviços</RouterLink>
+            <RouterLink to="/portfolio" @click="closeMenu">Portfólio</RouterLink>
+            <RouterLink to="/contactos" @click="closeMenu">Contactos</RouterLink>
+          </div>
+          <div class="mobile-nav-footer">
+            <a href="https://wa.me/258862737770" class="whatsapp-link" target="_blank">
+              📱 Falar no WhatsApp
+            </a>
+          </div>
+        </nav>
     </header>
 
     <main class="main-content">
       <RouterView />
     </main>
 
-    <footer class="main-footer">
-        <div class="container">
-            <p>&copy; 2024 MADFIN - Gráfica e Serigrafia. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+    <FooterSection />
   </div>
 </template>
 
@@ -60,13 +104,15 @@ import { RouterLink, RouterView } from 'vue-router'
     font-weight: 800;
     letter-spacing: -1px;
     color: var(--color-heading);
+    text-decoration: none;
 }
 
 .highlight {
     color: var(--color-primary);
 }
 
-nav a {
+/* Desktop Nav */
+.desktop-nav a {
     color: var(--color-text);
     margin-left: 2.5rem;
     font-weight: 600;
@@ -75,7 +121,7 @@ nav a {
     transition: all 0.3s ease;
 }
 
-nav a::after {
+.desktop-nav a::after {
     content: '';
     position: absolute;
     width: 0;
@@ -86,24 +132,169 @@ nav a::after {
     transition: width 0.3s ease;
 }
 
-nav a:hover, nav a.router-link-active {
+.desktop-nav a:hover, .desktop-nav a.router-link-active {
     color: var(--color-primary);
 }
 
-nav a:hover::after, nav a.router-link-active::after {
+.desktop-nav a:hover::after, .desktop-nav a.router-link-active::after {
     width: 100%;
+}
+
+/* Mobile Menu Button (Hamburger) */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002;
+}
+
+.mobile-menu-btn span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-heading);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile Nav Overlay */
+.mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-nav-overlay.open {
+    opacity: 1;
+}
+
+/* Mobile Nav Drawer */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100%;
+    background: white;
+    z-index: 1001;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    flex-direction: column;
+}
+
+.mobile-nav.open {
+    right: 0;
+}
+
+.mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.mobile-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-text);
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+
+.mobile-nav-links a {
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.3s;
+}
+
+.mobile-nav-links a:hover, .mobile-nav-links a.router-link-active {
+    color: var(--color-primary);
+    padding-left: 0.5rem;
+}
+
+.mobile-nav-footer {
+    padding: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.whatsapp-link {
+    display: block;
+    background: #25d366;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
 }
 
 .main-content {
     flex: 1;
 }
 
-.main-footer {
-    background: linear-gradient(to top, #ffffff, #f4fcf4);
-    color: var(--color-text-light);
-    text-align: center;
-    padding: 3rem 0;
-    margin-top: auto;
-    border-top: 1px solid rgba(0,0,0,0.05);
+/* Responsive - Show mobile menu on smaller screens */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: flex;
+    }
+    
+    .mobile-nav-overlay {
+        display: block;
+        pointer-events: none;
+    }
+    
+    .mobile-nav-overlay.open {
+        pointer-events: auto;
+    }
+    
+    .mobile-nav {
+        display: flex;
+    }
 }
 </style>
