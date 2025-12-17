@@ -112,7 +112,33 @@ function animateCounters() {
 }
 
 @media (max-width: 768px) {
-  .stat-number { font-size: 2.5rem; }
-  .stat-item::after { display: none; }
+  .stats-section {
+    padding: 3rem 0;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1rem;
+  }
+  .stat-number { 
+    font-size: 2rem; 
+  }
+  .suffix {
+    font-size: 1.2rem;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+  }
+  .stat-item::after { 
+    display: none; 
+  }
+}
+
+@media (max-width: 400px) {
+  .stat-number { 
+    font-size: 1.8rem; 
+  }
+  .stat-label {
+    font-size: 0.7rem;
+  }
 }
 </style>

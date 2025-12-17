@@ -559,19 +559,128 @@ h1 {
     filter: brightness(0.7);
 }
 
+/* ========== MOBILE RESPONSIVE FIXES ========== */
 @media (max-width: 900px) {
-    .hero-creative { padding: 6rem 0 4rem; }
-    .hero-content { grid-template-columns: 1fr; text-align: center; }
-    .actions { justify-content: center; }
-    .hero-creative p { margin: 0 auto 2.5rem; }
-    .visual-block { margin-top: 3rem; height: 300px; display: block; }
+    .hero-creative { 
+        padding: 4rem 0 3rem; 
+    }
+    .hero-content { 
+        grid-template-columns: 1fr; 
+        text-align: center; 
+        gap: 2rem;
+    }
+    .actions { 
+        justify-content: center; 
+        flex-direction: column;
+        align-items: center;
+    }
+    .cta-button {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+    .hero-creative p { 
+        margin: 0 auto 2rem;
+        padding: 0 1rem; 
+    }
+    .visual-block { 
+        margin-top: 2rem; 
+        height: 280px; 
+        display: block; 
+    }
     .creative-card { display: none; }
-    .image-stack { height: 300px; display: block; margin-top: 2rem; }
+    .creative-circle { display: none; }
+    
+    /* Section Headers Mobile */
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* Bento Grid Mobile */
+    .bento-grid {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .bento-item {
+        height: 200px;
+    }
+    .item-large {
+        grid-row: auto;
+    }
+    
+    /* Partners Mobile */
+    .partners-grid {
+        gap: 1.5rem;
+    }
+    .partner-logo {
+        font-size: 1rem;
+    }
+    
+    /* Team Grid Mobile */
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .team-card {
+        padding: 1.5rem 1rem;
+    }
+    .avatar-placeholder {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    .team-card h4 {
+        font-size: 0.95rem;
+    }
+    
+    /* About/Intro Section Mobile */
+    .intro-section {
+        padding: 4rem 0;
+    }
+    .split-layout {
+        gap: 2rem;
+    }
+    .image-stack { 
+        height: 250px; 
+        display: block; 
+        margin-top: 2rem; 
+    }
+    .box-1, .box-2 {
+        width: 100%;
+        height: 100%;
+    }
+    .box-2 {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    .eyebrow {
+        font-size: 0.75rem;
+    }
+    .hero-creative p {
+        font-size: 1rem;
+    }
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    .partners h3 {
+        font-size: 0.9rem;
+    }
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+    .check-list li {
+        font-size: 1rem;
+    }
 }
 
 /* CTA Banner */
 .cta-banner {
-    padding: 6rem 0;
+    padding: 5rem 0;
     background: linear-gradient(135deg, #111 0%, #222 100%);
     color: white;
     text-align: center;
@@ -605,6 +714,7 @@ h1 {
     font-size: 1.2rem;
     opacity: 0.8;
     margin-bottom: 2rem;
+    padding: 0 1rem;
 }
 
 .cta-actions {
@@ -612,6 +722,7 @@ h1 {
     justify-content: center;
     gap: 1.5rem;
     flex-wrap: wrap;
+    padding: 0 1rem;
 }
 
 .cta-button.large {
@@ -627,5 +738,27 @@ h1 {
 
 .cta-button.whatsapp:hover {
     background: #1db954;
+}
+
+@media (max-width: 600px) {
+    .cta-banner {
+        padding: 4rem 0;
+    }
+    .cta-banner h2 {
+        font-size: 1.8rem;
+        padding: 0 1rem;
+    }
+    .cta-banner p {
+        font-size: 1rem;
+    }
+    .cta-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    .cta-button.large {
+        width: 100%;
+        max-width: 280px;
+        padding: 1rem 2rem;
+    }
 }
 </style>

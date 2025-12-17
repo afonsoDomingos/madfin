@@ -170,4 +170,44 @@ onUnmounted(() => {
   background: var(--color-primary);
   transform: scale(1.2);
 }
+
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 4rem 0;
+  }
+  
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .testimonial-card {
+    padding: 2rem 1.5rem;
+    margin: 0 0.5rem;
+  }
+  
+  .quote-icon {
+    font-size: 4rem;
+    left: 1rem;
+  }
+  
+  .testimonial-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  
+  .author-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .author-info strong {
+    font-size: 0.9rem;
+  }
+  
+  .author-info span {
+    font-size: 0.75rem;
+  }
+}
 </style>
