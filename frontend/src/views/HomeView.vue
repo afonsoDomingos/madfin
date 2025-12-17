@@ -104,7 +104,7 @@
                     <span class="role">Gestão de Produção</span>
                 </div>
                  <div class="team-card">
-                    <div class="avatar-placeholder">A</div>
+                    <img src="/images/afonso_domingos.jpg" alt="Afonso Domingos" class="avatar-img" />
                     <h4>Afonso Domingos</h4>
                     <span class="role">IT & Tecnologia</span>
                 </div>
@@ -491,6 +491,14 @@ h1 {
 .role {
     font-size: 0.9rem;
     color: var(--color-text-light);
+}
+
+.avatar-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem;
 }
 
 /* Intro Section */
