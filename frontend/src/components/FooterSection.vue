@@ -181,15 +181,20 @@ ul li a:hover {
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
-    text-align: center;
+    text-align: left;
   }
   
   .footer-brand {
     grid-column: span 2;
+    text-align: left;
   }
   
   .footer-brand p {
     font-size: 0.85rem;
+  }
+  
+  .social-links {
+    justify-content: flex-start;
   }
   
   h4 {
@@ -206,6 +211,7 @@ ul li a:hover {
     flex-direction: column;
     gap: 0.5rem;
     font-size: 0.75rem;
+    text-align: center;
   }
 }
 </style>
