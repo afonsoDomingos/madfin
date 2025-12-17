@@ -385,20 +385,47 @@ onMounted(() => {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     .christmas-promo {
         padding: 3rem 0;
     }
+    
     .promo-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
         gap: 1rem;
+        padding: 1rem 0;
+        margin: 0 -1.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        scrollbar-width: none;
     }
+    
+    .promo-grid::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .promo-card {
+        flex: 0 0 75%;
+        min-width: 75%;
+        scroll-snap-align: center;
+    }
+    
     .promo-card img {
-        height: 200px;
+        height: 280px;
     }
+    
     .promo-header h2 {
         font-size: 1.5rem;
     }
+    
+    .promo-header p {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+    }
+    
     .cta-button.christmas {
         padding: 1rem 2rem;
         font-size: 1rem;
