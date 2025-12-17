@@ -71,8 +71,8 @@
         <div class="container">
             <h3>Empresas que confiam na MADFIN</h3>
             <div class="partners-grid">
-                <div class="partner-logo">ISMU</div>
-                <div class="partner-logo">RPA</div>
+                <a href="https://ismu.ac.mz/" target="_blank" class="partner-logo">ISMU</a>
+                <a href="https://recuperaaqui.vercel.app/" target="_blank" class="partner-logo">RPA</a>
                 <div class="partner-logo">MADFIN</div>
             </div>
         </div>
