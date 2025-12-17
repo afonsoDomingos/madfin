@@ -49,28 +49,28 @@
                     <img src="/images/natal_mae.png" alt="Camiseta Mãe Feliz Natal" />
                     <div class="promo-card-info">
                         <h4>T-Shirt "Mãe"</h4>
-                        <span class="price">550 MT</span>
+                        <span class="price">650 MT</span>
                     </div>
                 </div>
                 <div class="promo-card">
                     <img src="/images/natal_fe.png" alt="Camiseta Fé Paz Amor" />
                     <div class="promo-card-info">
                         <h4>T-Shirt "Fé & Paz"</h4>
-                        <span class="price">550 MT</span>
+                        <span class="price">650 MT</span>
                     </div>
                 </div>
                 <div class="promo-card">
                     <img src="/images/natal_familia.png" alt="Camiseta Família Natal" />
                     <div class="promo-card-info">
                         <h4>T-Shirt "Família"</h4>
-                        <span class="price">550 MT</span>
+                        <span class="price">650 MT</span>
                     </div>
                 </div>
                 <div class="promo-card">
                     <img src="/images/natal_ano_novo.png" alt="Polo Feliz Ano Novo" />
                     <div class="promo-card-info">
                         <h4>Polo "Ano Novo"</h4>
-                        <span class="price">550 MT</span>
+                        <span class="price">650 MT</span>
                     </div>
                 </div>
             </div>
