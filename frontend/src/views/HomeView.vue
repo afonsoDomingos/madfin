@@ -71,12 +71,9 @@
         <div class="container">
             <h3>Empresas que confiam na MADFIN</h3>
             <div class="partners-grid">
-                <!-- Using placeholders for now -->
-                <div class="partner-logo">VODACOM</div>
-                <div class="partner-logo">BCI</div>
-                <div class="partner-logo">LAM</div>
-                <div class="partner-logo">MCEL</div>
-                <div class="partner-logo">BIM</div>
+                <div class="partner-logo">ISMU</div>
+                <div class="partner-logo">RPA</div>
+                <div class="partner-logo">MADFIN</div>
             </div>
         </div>
     </section>
