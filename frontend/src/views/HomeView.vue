@@ -90,13 +90,13 @@
             <div class="team-grid">
                 <div class="team-card">
                     <div class="avatar-placeholder">S</div>
-                    <h4>Stewart</h4>
-                    <span class="role">CEO & Fundador</span>
+                    <h4>Stuart Madondo</h4>
+                    <span class="role">CEO</span>
                 </div>
                 <div class="team-card">
-                    <div class="avatar-placeholder">D</div>
-                    <h4>Donnie Gane</h4>
-                    <span class="role">Diretor Criativo</span>
+                    <div class="avatar-placeholder">M</div>
+                    <h4>Moises Guane</h4>
+                    <span class="role">Designer Gráfico</span>
                 </div>
                  <div class="team-card">
                     <div class="avatar-placeholder">J</div>
