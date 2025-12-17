@@ -29,6 +29,59 @@
       </div>
     </section>
     
+    <!-- 🎄 CHRISTMAS PROMO SECTION 🎄 -->
+    <section class="christmas-promo">
+        <div class="snowflakes" aria-hidden="true">
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+        </div>
+        <div class="container">
+            <div class="promo-header">
+                <span class="promo-badge">🎁 Promoção Especial</span>
+                <h2>Natal & Ano Novo <span class="highlight-text">2024</span></h2>
+                <p>Personalize suas camisetas para celebrar com estilo! Encomendas até 20 de Dezembro.</p>
+            </div>
+            <div class="promo-grid">
+                <div class="promo-card">
+                    <img src="/images/natal_mae.png" alt="Camiseta Mãe Feliz Natal" />
+                    <div class="promo-card-info">
+                        <h4>T-Shirt "Mãe"</h4>
+                        <span class="price">850 MZN</span>
+                    </div>
+                </div>
+                <div class="promo-card">
+                    <img src="/images/natal_fe.png" alt="Camiseta Fé Paz Amor" />
+                    <div class="promo-card-info">
+                        <h4>T-Shirt "Fé & Paz"</h4>
+                        <span class="price">850 MZN</span>
+                    </div>
+                </div>
+                <div class="promo-card">
+                    <img src="/images/natal_familia.png" alt="Camiseta Família Natal" />
+                    <div class="promo-card-info">
+                        <h4>T-Shirt "Família"</h4>
+                        <span class="price">850 MZN</span>
+                    </div>
+                </div>
+                <div class="promo-card">
+                    <img src="/images/natal_ano_novo.png" alt="Polo Feliz Ano Novo" />
+                    <div class="promo-card-info">
+                        <h4>Polo "Ano Novo"</h4>
+                        <span class="price">1,200 MZN</span>
+                    </div>
+                </div>
+            </div>
+            <div class="promo-cta">
+                <a href="https://wa.me/258862737770?text=Olá! Quero encomendar camisetas de Natal!" target="_blank" class="cta-button christmas">
+                    🎄 Encomendar Agora
+                </a>
+            </div>
+        </div>
+    </section>
+    
     <!-- STATS COUNTER -->
     <StatsCounter />
     
@@ -179,6 +232,177 @@ onMounted(() => {
 .reveal-on-scroll.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* 🎄 CHRISTMAS PROMO SECTION 🎄 */
+.christmas-promo {
+    background: linear-gradient(135deg, #c41e3a 0%, #8B0000 50%, #006400 100%);
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+.snowflakes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.snowflake {
+    position: absolute;
+    top: -20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.5rem;
+    animation: fall 8s linear infinite;
+}
+
+.snowflake:nth-child(1) { left: 10%; animation-delay: 0s; font-size: 1rem; }
+.snowflake:nth-child(2) { left: 30%; animation-delay: 2s; font-size: 1.5rem; }
+.snowflake:nth-child(3) { left: 50%; animation-delay: 4s; font-size: 1.2rem; }
+.snowflake:nth-child(4) { left: 70%; animation-delay: 1s; font-size: 1.8rem; }
+.snowflake:nth-child(5) { left: 90%; animation-delay: 3s; font-size: 1rem; }
+
+@keyframes fall {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0.3; }
+}
+
+.promo-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 2;
+}
+
+.promo-badge {
+    display: inline-block;
+    background: #FFD700;
+    color: #8B0000;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.promo-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.promo-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.promo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.promo-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.promo-card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.promo-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.promo-card-info {
+    padding: 1rem;
+    text-align: center;
+    background: white;
+}
+
+.promo-card-info h4 {
+    color: #333;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.promo-card-info .price {
+    color: #c41e3a;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+.promo-cta {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-button.christmas {
+    background: #FFD700;
+    color: #8B0000;
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
+    transition: all 0.3s;
+}
+
+.cta-button.christmas:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.7);
+}
+
+@media (max-width: 900px) {
+    .promo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .promo-header h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .christmas-promo {
+        padding: 3rem 0;
+    }
+    .promo-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .promo-card img {
+        height: 200px;
+    }
+    .promo-header h2 {
+        font-size: 1.5rem;
+    }
+    .cta-button.christmas {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
 }
 
 /* Hero Creative */
