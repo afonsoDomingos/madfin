@@ -160,22 +160,52 @@ ul li a:hover {
 @media (max-width: 900px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 2rem;
   }
-}
-
-@media (max-width: 600px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
+  
+  .footer-brand {
+    grid-column: span 2;
     text-align: center;
   }
   
   .social-links {
     justify-content: center;
   }
+}
+
+@media (max-width: 600px) {
+  .footer-main {
+    padding: 3rem 0;
+  }
+  
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .footer-brand {
+    grid-column: span 2;
+  }
+  
+  .footer-brand p {
+    font-size: 0.85rem;
+  }
+  
+  h4 {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  
+  ul li {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
   
   .footer-bottom-content {
     flex-direction: column;
     gap: 0.5rem;
+    font-size: 0.75rem;
   }
 }
 </style>
