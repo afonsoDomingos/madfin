@@ -70,7 +70,7 @@
                     <img src="/images/natal_ano_novo.png" alt="Polo Feliz Ano Novo" />
                     <div class="promo-card-info">
                         <h4>Polo "Ano Novo"</h4>
-                        <span class="price">650 MT</span>
+                        <span class="price">750 MT</span>
                     </div>
                 </div>
             </div>
