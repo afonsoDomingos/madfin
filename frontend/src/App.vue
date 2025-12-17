@@ -240,15 +240,17 @@ router.afterEach(() => {
     flex-direction: column;
     padding: 1.5rem;
     flex-grow: 1;
+    background: #ffffff;
 }
 
 .mobile-nav-links a {
     padding: 1rem 0;
     font-size: 1.2rem;
     font-weight: 600;
-    color: var(--color-heading);
+    color: #111111;
     border-bottom: 1px solid #f0f0f0;
     transition: all 0.3s;
+    text-decoration: none;
 }
 
 .mobile-nav-links a:hover, .mobile-nav-links a.router-link-active {
@@ -259,6 +261,7 @@ router.afterEach(() => {
 .mobile-nav-footer {
     padding: 1.5rem;
     border-top: 1px solid #eee;
+    background: #ffffff;
 }
 
 .whatsapp-link {
