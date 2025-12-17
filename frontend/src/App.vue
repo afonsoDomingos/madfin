@@ -183,7 +183,7 @@ router.afterEach(() => {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     z-index: 999;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -201,11 +201,12 @@ router.afterEach(() => {
     right: -300px;
     width: 280px;
     height: 100%;
-    background: white;
+    background: #ffffff;
     z-index: 1001;
-    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
     transition: right 0.3s ease;
     flex-direction: column;
+    overflow-y: auto;
 }
 
 .mobile-nav.open {
@@ -218,6 +219,7 @@ router.afterEach(() => {
     align-items: center;
     padding: 1.5rem;
     border-bottom: 1px solid #eee;
+    background: #ffffff;
 }
 
 .mobile-logo {
