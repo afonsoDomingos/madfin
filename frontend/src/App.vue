@@ -43,29 +43,29 @@ router.afterEach(() => {
             <span></span>
           </button>
         </div>
-        
-        <!-- Mobile Nav Overlay -->
-        <div class="mobile-nav-overlay" :class="{ 'open': mobileMenuOpen }" @click="closeMenu"></div>
-        
-        <!-- Mobile Nav Drawer -->
-        <nav class="mobile-nav" :class="{ 'open': mobileMenuOpen }">
-          <div class="mobile-nav-header">
-            <span class="mobile-logo">MAD<span class="highlight">FIN</span></span>
-            <button class="close-btn" @click="closeMenu">×</button>
-          </div>
-          <div class="mobile-nav-links">
-            <RouterLink to="/" @click="closeMenu">Início</RouterLink>
-            <RouterLink to="/servicos" @click="closeMenu">Serviços</RouterLink>
-            <RouterLink to="/portfolio" @click="closeMenu">Portfólio</RouterLink>
-            <RouterLink to="/contactos" @click="closeMenu">Contactos</RouterLink>
-          </div>
-          <div class="mobile-nav-footer">
-            <a href="https://wa.me/258862737770" class="whatsapp-link" target="_blank">
-              📱 Falar no WhatsApp
-            </a>
-          </div>
-        </nav>
     </header>
+    
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" :class="{ 'open': mobileMenuOpen }" @click="closeMenu"></div>
+    
+    <!-- Mobile Nav Drawer -->
+    <nav class="mobile-nav" :class="{ 'open': mobileMenuOpen }">
+      <div class="mobile-nav-header">
+        <span class="mobile-logo">MAD<span class="highlight">FIN</span></span>
+        <button class="close-btn" @click="closeMenu">×</button>
+      </div>
+      <div class="mobile-nav-links">
+        <RouterLink to="/" @click="closeMenu">Início</RouterLink>
+        <RouterLink to="/servicos" @click="closeMenu">Serviços</RouterLink>
+        <RouterLink to="/portfolio" @click="closeMenu">Portfólio</RouterLink>
+        <RouterLink to="/contactos" @click="closeMenu">Contactos</RouterLink>
+      </div>
+      <div class="mobile-nav-footer">
+        <a href="https://wa.me/258862737770" class="whatsapp-link" target="_blank">
+          📱 Falar no WhatsApp
+        </a>
+      </div>
+    </nav>
 
     <main class="main-content">
       <RouterView />
@@ -155,12 +155,12 @@ router.afterEach(() => {
 }
 
 .mobile-menu-btn span {
+    display: block;
     width: 100%;
     height: 3px;
-    background-color: var(--color-heading);
+    background-color: #111;
     border-radius: 3px;
     transition: all 0.3s ease;
-    transform-origin: center;
 }
 
 .mobile-menu-btn.active span:nth-child(1) {
@@ -177,40 +177,41 @@ router.afterEach(() => {
 
 /* Mobile Nav Overlay */
 .mobile-nav-overlay {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
-    z-index: 999;
+    z-index: 998;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    visibility: hidden;
+    transition: all 0.3s ease;
 }
 
 .mobile-nav-overlay.open {
     opacity: 1;
+    visibility: visible;
 }
 
 /* Mobile Nav Drawer */
 .mobile-nav {
-    display: none;
     position: fixed;
     top: 0;
-    right: -300px;
+    right: 0;
     width: 280px;
     height: 100%;
-    background: #ffffff;
-    z-index: 1001;
+    background-color: #ffffff;
+    z-index: 999;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
-    transition: right 0.3s ease;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    display: flex;
     flex-direction: column;
-    overflow-y: auto;
 }
 
 .mobile-nav.open {
-    right: 0;
+    transform: translateX(0);
 }
 
 .mobile-nav-header {
@@ -219,12 +220,13 @@ router.afterEach(() => {
     align-items: center;
     padding: 1.5rem;
     border-bottom: 1px solid #eee;
-    background: #ffffff;
+    background-color: #ffffff;
 }
 
 .mobile-logo {
     font-size: 1.5rem;
     font-weight: 800;
+    color: #111;
 }
 
 .close-btn {
@@ -232,36 +234,36 @@ router.afterEach(() => {
     border: none;
     font-size: 2rem;
     cursor: pointer;
-    color: var(--color-text);
+    color: #111;
+    line-height: 1;
 }
 
 .mobile-nav-links {
     display: flex;
     flex-direction: column;
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
     flex-grow: 1;
-    background: #ffffff;
+    background-color: #ffffff;
 }
 
 .mobile-nav-links a {
+    display: block;
     padding: 1rem 0;
     font-size: 1.2rem;
     font-weight: 600;
     color: #111111;
     border-bottom: 1px solid #f0f0f0;
-    transition: all 0.3s;
     text-decoration: none;
 }
 
 .mobile-nav-links a:hover, .mobile-nav-links a.router-link-active {
-    color: var(--color-primary);
-    padding-left: 0.5rem;
+    color: #8CC63F;
 }
 
 .mobile-nav-footer {
     padding: 1.5rem;
     border-top: 1px solid #eee;
-    background: #ffffff;
+    background-color: #ffffff;
 }
 
 .whatsapp-link {
@@ -286,19 +288,6 @@ router.afterEach(() => {
     }
     
     .mobile-menu-btn {
-        display: flex;
-    }
-    
-    .mobile-nav-overlay {
-        display: block;
-        pointer-events: none;
-    }
-    
-    .mobile-nav-overlay.open {
-        pointer-events: auto;
-    }
-    
-    .mobile-nav {
         display: flex;
     }
 }
